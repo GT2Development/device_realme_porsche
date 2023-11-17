@@ -5,16 +5,29 @@
 #
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from porsche device
 $(call inherit-product, device/realme/porsche/device.mk)
 
-# Inherit some common PixelOS stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common Evolution stuff.
+$(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 
-PRODUCT_NAME := aosp_porsche
+# Evox Stuff
+EVO_BUILD_TYPE := INITIAL
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_TOUCHGESTURES := true
+TARGET_BUILD_APERTURE_CAMERA := false
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_SUPPORTS_QUICK_TAP := true
+EXTRA_UDFPS_ANIMATIONS := true
+TARGET_USES_MINI_GAPPS := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true
+
+PRODUCT_NAME := evolution_porsche
 PRODUCT_DEVICE := porsche
 PRODUCT_MANUFACTURER := realme
 PRODUCT_BRAND := realme

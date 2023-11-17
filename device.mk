@@ -15,6 +15,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_platform_info_intcodec.xml \
     $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/sound_trigger_mixer_paths.xml \
@@ -31,14 +32,25 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.brightness.low.gamma=true
-
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_$(DEVICE_SKU)/audio_effects.xml     
+# Firmware
+$(call inherit-product, vendor/realme/firmware/porsche/BoardConfigVendor.mk)
+# Camera
+$(call inherit-product-if-exists, vendor/realme/porsche-opluscamera/opluscamera.mk)
 # FaceSense
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.face.sense_service.camera_id=1
 
+# Thermal
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/configs/thermal/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
+# Viper
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc_snxxx@1.2-service \
+    android.hardware.nfc-service.nxp \
     android.hardware.secure_element@1.2.vendor \
     com.android.nfc_extras \
     Tag

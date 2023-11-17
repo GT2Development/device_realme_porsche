@@ -376,6 +376,9 @@
     <!-- Light sensor event rate in milliseconds for automatic brightness control. -->
     <integer name="config_autoBrightnessLightSensorRate">200</integer>
 
+    <!-- If true, the display will be shifted around in ambient mode. -->
+    <bool name="config_enableBurnInProtection">true</bool>
+
     <!-- See AmbientSensor.AmbientColorTemperatureSensor.
          The ambient color temperature sensor name. -->
     <string name="config_displayWhiteBalanceColorTemperatureSensorName" translatable="false">qti.sensor.rgb_rear</string>

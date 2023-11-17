@@ -3,6 +3,17 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+TARGET_2ND_ARCH_VARIANT=armv8-2a
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+BUILD_BROKEN_CLANG_PROPERTY := true
+BUILD_BROKEN_CLANG_ASFLAGS := true
+BUILD_BROKEN_CLANG_CFLAGS := true
+BUILD_BROKEN_PYTHON_IS_PYTHON2 := true
+BUILD_BROKEN_USES_SOONG_PYTHON2_MODULES := true
 
 # Include the common OEM chipset BoardConfig.
 include device/oneplus/sm8350-common/BoardConfigCommon.mk
