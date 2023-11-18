@@ -34,7 +34,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_$(DEVICE_SKU)/audio_effects.xml
          
 # Firmware
-$(call inherit-product, vendor/realme/firmware/porsche/BoardConfigVendor.mk)
+$(call inherit-product-if-exists, vendor/realme/firmware/porsche/BoardConfigVendor.mk)
 
 # Camera
 $(call inherit-product-if-exists, vendor/realme/porsche-opluscamera/opluscamera.mk)
